@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="dtpCardList" type="dtpCardListType"/>
+  <xs:complexType name="accidentType">
+    <xs:sequence>
+      <xs:element name="regName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Российская Федерация, Краснодарский край"/>
+            <xs:enumeration value="Российская Федерация, г. Москва"/>
+            <xs:enumeration value="Российская Федерация, Нижегородская область"/>
+            <xs:enumeration value="Российская Федерация, Новосибирская область"/>
+            <xs:enumeration value="Российская Федерация, г. Санкт-Петербург"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="district"/>
+      <xs:element type="xs:string" name="COORD_L"/>
+      <xs:element type="xs:string" name="COORD_W"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dtpCardListType">
+    <xs:sequence>
+      <xs:element type="accidentType" name="accident" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
